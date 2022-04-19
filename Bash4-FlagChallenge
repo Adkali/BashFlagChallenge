@@ -1,0 +1,80 @@
+#!/bin/bash
+echo "The Challenge Is About To Begin, Please Wait..."
+sleep 4
+echo Installing Cowsay For Better Experience...
+sleep 3
+sudo apt-get install cowsay -y
+sleep 2
+
+                                         cowsay Can You Finish The Challenge and Win The Flag? Well Good Luck With That!
+
+echo "Hey, Do You Wanna Play A Game With Me?"
+echo  "Choose With Yes | No And Pay Attention To The Little Things."
+echo  "Yes | No"
+read Yes
+if [ $Yes == "Yes" ]; then
+echo "OK, Aweosme."
+echo "Let's Start The Game."
+
+else
+echo "What? But I Told You to Pay Attention To The Little Things, Am I Right? Try Again."
+exit
+fi
+
+echo "Tell Me, What Is The Username Please? Think Before You Type."
+sleep 1
+echo Hint:
+echo TG9vayBJbnNpZGUgT2YgTWUK
+
+read log
+echo "What Is The Pas...pass..passwo..password, please?" 
+read -s  Password
+otext=`echo 'ypmsU3W3CFSKG7+TzJ/2' | openssl enc -d -base64 -aes-128-ctr -nosalt -pbkdf2 -k secret_password`
+
+if [[ $Username != "Hacker007" && $Password == $otext && $log == "James007" ]]; then
+echo "Welcome to the Cyber-World."
+echo "Let's Continue Please."
+
+else
+echo "You Are Not Authenticated."
+         cowsay You Lost The Game, You N00b.
+exit
+fi
+
+echo "What Is Your Name?"
+read Name
+echo "A Beautiful Name You Have."
+echo "Let's Continue Please."
+
+echo "How old Are You, $Name?"
+echo "Please, Enter Your Age Down Below."
+read Age
+Age=1-120 | base64
+
+echo $Age Years old, You Are Still Young.
+echo "But Hey, The Whole Life Is Front Of You, So Kick Some Ass :)"
+
+
+echo Ready For Another Question? Answering Right Will Get You A Flag.
+echo After guessing right the Number, The Flag will Wait For You At The /tmp Directory, Have Fun.
+echo "If You Want To Continue, Just  Answer With y3s | No"
+read Question
+if [ $Question == y3s ]; then echo "Tell Me please -  What Is The Lucky Number?"
+read number
+else echo "Again... The Little Things, The Little Things."
+exit
+fi
+
+                              lotto=`echo "MTUK" | openssl enc -d -base64`
+                              lotto2=`echo "NDUK" | openssl enc -d -base64`
+                              LuckyNumber="e51b557f0b2e3ad3bTryAgain"
+if [[ $number -eq lotto || $number -eq lotto2 ]]; then
+sleep 5
+echo "Just Kidding With you... You Tought It Got Stuck, Hah?"
+sleep 3
+echo th!s!sy0urfl@s$lotto2 | md5sum > /tmp/flag.txt
+                                                   cowsay You Did It, Congratulations! The Flag Is Waiting For You r3m3mb3r Wh3r3?
+else
+sleep 3
+echo "You Did It! Head Over To /tmp And See The Flag."
+echo "SnVzdCBLaWRkaW5nIFdpdGggWW91LCBUcnkgQWdhaW4K" | base64 -d >> /tmp/flag.txt
